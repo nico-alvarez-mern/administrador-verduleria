@@ -9,6 +9,18 @@ const VentaSchema = Schema({
     total : {
         type : Number,
         required : true
+    },
+    total_kg : {
+        type : Number,
+        required : true
+    },
+    total_unidad : {
+        type : Number,
+        default : 0
+    },
+    consto_unidad : {
+        type : Number,
+        default : 0
     }
 });
 
@@ -19,3 +31,4 @@ VentaSchema.method('toJSON', function() {
 });
 
 module.exports = model('Venta',VentaSchema);
+

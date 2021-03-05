@@ -1,8 +1,7 @@
 const test = require('ava');
 const moment = require('moment');
 const { mock } = require('sinon');
-const { calcularCMV,
-        calcularPerdida,
+const { calcularPerdida,
         devolverPerdidaDelMismoDia,
         sumarPerdidas,
         crearPerdida } = require('../../dominio/perdidas');
@@ -18,7 +17,7 @@ test('Debo calcular la perdida en base a los KG exitosamente', t =>{
     t.is(resultado,resultadoEsperado);
 });
 
-test('Debo calcular el CMV exitosamente', t =>{
+/* test('Debo calcular el CMV exitosamente', t =>{
     const ventasKG = 100;
     const valorPromedio = 70;
     const resultadoEsperado = ventasKG * valorPromedio;
@@ -26,7 +25,7 @@ test('Debo calcular el CMV exitosamente', t =>{
     const resultado = calcularCMV(ventasKG,valorPromedio);
 
     t.is(resultado,resultadoEsperado);
-});
+}); */
 
 test('Fechas del mismo dia', t =>{
     const fecha = moment('2021-01-15');

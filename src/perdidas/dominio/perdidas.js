@@ -4,15 +4,24 @@ const calcularPerdida = (kg,valorPromedio)=>{
     return Math.round(kg * valorPromedio);
 }
 
-//CMV : costo de mercaderia vendida
-const calcularCMV = (ventasKG,valorPromedio)=>{
-    return Math.round(ventasKG * valorPromedio);
-}
-
-const crearPerdida = (kg,valor) => {
+const crearPerdida = (kg,valor,totalCMV = null) => {
+    if(totalCMV){
+        return {
+            kg : 0,
+            valor : totalCMV
+        }
+    }
     return  {
         kg,
         valor : calcularPerdida(kg,valor) 
+    }
+}
+
+const sumarCMV = (totalCMV,perdida) => {
+    const { kg, valor } = perdida;
+    return {
+        kg,
+        valor : valor + totalCMV
     }
 }
 
@@ -31,8 +40,8 @@ const sumarPerdidas = (perdidaEntrante,perdidaExistente,valorPromedio) => {
 
 module.exports = {
     calcularPerdida,
-    calcularCMV,
     devolverPerdidaDelMismoDia,
     crearPerdida,
-    sumarPerdidas
+    sumarPerdidas,
+    sumarCMV
 }
